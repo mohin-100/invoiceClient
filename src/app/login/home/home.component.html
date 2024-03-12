@@ -1,0 +1,21 @@
+<div id="login-form-wrap">
+  <h2>Login</h2>
+  <div *ngIf="showInvalidCredentialsAlert" class="alert alert-danger mx-2" role="alert">
+    Invalid credentials. Please try again.
+  </div>
+  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <p>
+      <input formControlName="userMail" type="email" id="email" name="email" placeholder="Email Address" required>
+    </p>
+    <p>
+      <input formControlName="userPassword" type="text" id="userPassword" name="userPassword" placeholder="Password" required>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Login">
+    </p>
+  </form>
+
+  <div id="create-account-wrap">
+    <p>InvoiceBlitz</p>
+  </div><!--create-account-wrap-->
+</div>

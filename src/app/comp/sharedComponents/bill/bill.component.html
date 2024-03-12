@@ -1,0 +1,130 @@
+<app-breadcrum [pageTitle]="'Generate Bill'" [extraText]="'New Bill'" [prevRoute]="'dashboard'"></app-breadcrum>
+
+<div class="container">
+  <form [formGroup]="medicineBillForm" (ngSubmit)="onSubmit()">
+    <!-- Patient Information -->
+    <div class="mb-3">
+      <label for="patientName" class="form-label">Patient Name</label>
+      <input type="text" formControlName="patientName" class="form-control" id="patientName" placeholder="Enter patient's name">
+    </div>
+
+    <div class="mb-3">
+      <label for="patientEmail" class="form-label">Patient E-Mail</label>
+      <input type="email" formControlName="patientEmail" class="form-control" id="patientEmail"
+        placeholder="Enter patient's E-mail">
+    </div>
+
+    <div class="mb-3">
+      <label for="patientAddress" class="form-label">Patient Address</label>
+      <textarea class="form-control" formControlName="patientAddress" id="patientAddress" rows="3" placeholder="Enter patient's address"></textarea>
+    </div>
+
+    <!-- Doctor Information -->
+    <div class="mb-3">
+      <label for="doctorName" class="form-label">Doctor's Name</label>
+      <input type="text" class="form-control" formControlName="doctorName" id="doctorName" placeholder="Enter doctor's name">
+    </div>
+
+    <!-- Medicine Details -->
+    <!-- medicine-bill.component.html -->
+
+    <h4 class="mb-3">Medicine Details</h4>
+
+    <!-- FormArray for Medicine Details -->
+    <div formArrayName="medicineDetails" class="brdr-btm">
+      <div class="row" *ngIf="!medicineDetails.controls.length">
+        <div class="col-md-4 mb-3">
+          <button type="button" class="btn btn-success" (click)="addMedicine()">+</button>
+        </div>
+      </div>
+      <!-- Loop through each medicine item in the FormArray -->
+      <div class="brdr-top" *ngFor="let medicine of medicineDetails.controls; let i = index" [formGroupName]="i">
+
+
+        <div class="row">
+
+          <div class="col-md-3 mb-3">
+            <label for="medicineName" class="form-label">Medicine Name</label>
+            <!-- <input type="text" class="form-control" id="medicineName" formControlName="medicineName"
+                        placeholder="Enter medicine name"> -->
+            <select id="medicineName" formControlName="medicineId" class="form-select" placeholder="Select">
+              <option *ngFor="let med of medicinesArr" [value]="med._id">{{med.name}}</option>
+            </select>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" formControlName="quantity" id="quantity" placeholder="Enter quantity">
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="price" class="form-label">Price per unit</label>
+            <input type="number" class="form-control" formControlName="price" id="price" placeholder="Enter price per unit">
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="action" class="form-label">Action</label>
+            <div class="d-flex">
+              <button type="button" class="btn btn-danger" (click)="removeMedicine(i)">-</button>
+              <button type="button" class="btn btn-success mrgn-10" (click)="addMedicine()">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remove Button -->
+
+      </div>
+
+      <!-- Add Button -->
+
+    </div>
+
+
+    <!-- Total Amount -->
+    <h4 class="mb-3">Total Amount</h4>
+
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <label for="discount" class="form-label">Discount (%)</label>
+        <input type="number" class="form-control" formControlName="discount" id="discount" placeholder="Enter discount">
+      </div>
+
+      <div class="col-md-5 mb-3">
+          <label for="totalAmount" class="form-label">Total Amount</label>
+          <div class="d-flex">
+            <input type="text" class="form-control w-75" id="totalAmount" formControlName="totalAmount">
+            <button type="button" class="btn btn-primary mrgn-10" (click)="calculateTotalAmount()">
+              <i class="fa fa-calculator"></i>
+            </button>
+          </div>
+      </div>
+
+      <div class="col-md-2 mb-3 brdr-box">
+        <label for="priceBreakup" class="form-label brdr-btm">Price Breakup</label>
+        <div class="price-breakup">
+          <p><strong>Subtotal:</strong> {{ calculateSubtotal() | currency: 'INR' }}</p>
+          <p><strong>Discount:</strong> {{ calculateDiscount() | currency: 'INR' }}</p>
+          <p><strong>GST:</strong> {{ calculateGSTAmount() | currency: 'INR' }}</p>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-3 mb-3">
+        <label for="totalAmount" class="form-label">Refresh</label>
+        <button type="button" class="btn btn-primary"><i class="fa fa-calculator"></i></button>
+      </div> -->
+    </div>
+
+    <!-- Submit Button -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert.showAlert && alert.alertType === 'success'">
+      <strong>{{alert.alertMsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert"
+      *ngIf="alert.showAlert && alert.alertType === 'error'">
+      <strong>{{alert.alertMsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <button type="submit" class="btn btn-primary">{{alert.showAlert==true ? 'Edit' : 'Generate Bill'}}</button>
+  </form>
+</div>

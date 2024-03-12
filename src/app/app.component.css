@@ -1,0 +1,27 @@
+/* app.component.css */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Set the container to full viewport height */
+}
+
+.app-header, .app-footer {
+  flex: 0 0 auto; /* The header and footer won't grow or shrink */
+}
+
+.app-sidebar {
+  flex: 0 0 250px; /* Fixed width for the sidebar */
+}
+
+.main-content {
+  flex: 1; /* Allow the main content to take up remaining space */
+  padding-top: 56px; /* Adjust based on your header height */
+  /* padding-left: 240px; Adjust based on your sidebar width */
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+.main-pad-left{
+  padding-left: 240px;
+}
+/* Add additional styles as needed */

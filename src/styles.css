@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.main-container{
+  padding: 10px;
+}
+
+.hvr-float-shadow:hover {
+  transform: scale(1.1);
+}
+
+.hvr-icon {
+  transition: transform 0.3s ease-in-out;
+}

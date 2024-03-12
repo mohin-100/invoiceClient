@@ -1,0 +1,85 @@
+<app-breadcrum [pageTitle]="pageTitle" [extraText]="extraTitle" [prevRoute]="'dashboard'"></app-breadcrum>
+<div class="route-comp p-4">
+  <form class="row g-3" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-12">
+      <div class="form-check form-switch">
+        <input class="form-check-input" (change)="isExistingBrandCheck($event)" formControlName="isExisitngBrand" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label"  for="flexSwitchCheckDefault">Is Existing Brand</label>
+      </div>
+    </div>
+    <div class="col-md-4" *ngIf="!productForm.get('isExisitngBrand')?.value">
+      <label for="Brand" class="form-label">Brand</label>
+      <input type="text" formControlName="brand" class="form-control" id="Brand" placeholder="Brand">
+      <!-- <ul *ngIf="productForm.get('isExisitngBrand')?.value" class="suggestions-list">
+        <li *ngFor="let suggestion of matches">{{ suggestion }}</li>
+      </ul> -->
+    </div>
+    <div class="col-md-4" *ngIf="productForm.get('isExisitngBrand')?.value">
+      <label for="inputState" class="form-label">Brand</label>
+      <select id="inputState" class="form-select" formControlName="brand"
+        placeholder="Choose...">
+        <option *ngFor="let comp of brandNamesArr" value="{{comp}}">{{comp}}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="Name" class="form-label">Name</label>
+      <input type="text" formControlName="name" class="form-control" id="Name" placeholder="Name">
+    </div>
+    <div class="col-md-4">
+      <label for="Batch" class="form-label">Batch</label>
+      <input type="text" formControlName="batch" class="form-control" id="Batch" placeholder="Batch Number">
+    </div>
+    <div class="col-md-4">
+      <label for="MRP" class="form-label">MRP</label>
+      <input type="text" formControlName="mrp" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"  class="form-control" id="mrp" placeholder="MRP">
+    </div>
+    <div class="col-md-4">
+      <label for="Expiry" class="form-label">Expiry</label>
+      <input type="date" formControlName="expiry" class="form-control" id="Expiry">
+    </div>
+    <div class="col-md-4">
+      <label for="Remarks" class="form-label">Remarks</label>
+      <input type="text" formControlName="remarks" class="form-control" id="Remarks" placeholder="Remarks">
+    </div>
+
+    <!-- <div class="col-md-4">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-4">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-4">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-4">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">State</label>
+      <select id="inputState" class="form-select">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div> -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">{{page === 'view' ? 'Update' : 'Add'}}</button>
+    </div>
+  </form>
+
+</div>

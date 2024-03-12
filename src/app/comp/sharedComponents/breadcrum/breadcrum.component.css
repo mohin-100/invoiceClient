@@ -1,0 +1,38 @@
+/* breadcrumb.component.css */
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.breadcrumb-left {
+  flex: 1;
+}
+
+.back-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 8px 10px 0;
+  border-color: transparent #333 transparent transparent;
+  margin-right: 10px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.breadcrumb-center {
+  flex: 3;
+  text-align: center;
+}
+
+.breadcrumb-right {
+  flex: 1;
+  text-align: right;
+}
+
+.extra-text {
+  color: #888;
+}

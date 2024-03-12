@@ -1,0 +1,63 @@
+<div class="preview-container">
+  <h4 class="mb-3">Medicine Bill Preview</h4>
+
+  <div class="mb-3">
+    <label for="patientName" class="form-label"><strong>Patient Name:</strong></label>
+    <p class="preview-value">John Doe</p>
+  </div>
+
+  <div class="mb-3">
+    <label for="patientAddress" class="form-label"><strong>Patient Address:</strong></label>
+    <p class="preview-value">123 Main Street, Cityville</p>
+  </div>
+
+  <div class="mb-3">
+    <label for="doctorName" class="form-label"><strong>Doctor Name:</strong></label>
+    <p class="preview-value">Dr. Smith</p>
+  </div>
+
+  <!-- Medicine Details -->
+  <div class="mb-3">
+    <h5 class="mb-2">Medicine Details:</h5>
+
+    <!-- Medicine Detail Rows (replace with NgFor based on dynamic data) -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <p class="preview-value"><strong>Medicine Name:</strong> Aspirin</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <p class="preview-value"><strong>Quantity:</strong> 2</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <p class="preview-value"><strong>Price:</strong> $10</p>
+      </div>
+    </div>
+
+    <!-- Add more rows as needed for each medicine -->
+  </div>
+
+  <!-- Other Bill Details -->
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="discount" class="form-label"><strong>Discount (%):</strong></label>
+      <p class="preview-value">10%</p>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="totalAmount" class="form-label"><strong>Total Amount:</strong></label>
+      <p class="preview-value">$18.00</p>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="priceBreakup" class="form-label"><strong>Price Breakup:</strong></label>
+      <div class="price-breakup">
+        <p><strong>Subtotal:</strong> $20.00</p>
+        <p><strong>Discount:</strong> $2.00</p>
+        <p><strong>GST:</strong> $0.36</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Bill Details (if any) -->
+
+</div>

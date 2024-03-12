@@ -1,0 +1,15 @@
+export const endPoints = {
+  medicines: 'medicines',
+  getRecent: 'medicines/getRecent',
+  getRecentBills: 'bills/getRecent',
+  addMedicine: 'medicines/add',
+  deleteMedicine: 'medicines/delete',
+  updateMedicine: 'medicines/update',
+  findByBrand: 'medicines/findByBrand',
+  getAllBrandNames: 'medicines/getAllBrandNames',
+  getRandomQoutes: 'api/motivation',
+  saveBill: 'bills/add',
+  updateBill: 'bills/update',
+  deleteBill: 'bills/delete',
+  login: 'login',
+};

@@ -1,0 +1,29 @@
+.card-container:hover {
+    transform: scale(1.1); /* Zoom out effect */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+
+.card-container {
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.brdr-box{
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.brdr-btm{
+  border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+.lower-cont{
+  background-color: #efefef;
+}
+
+.upper-cont{
+background-color: rgb(168, 168, 168);
+}
+
+

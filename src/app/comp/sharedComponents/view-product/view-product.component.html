@@ -1,0 +1,44 @@
+<app-breadcrum [pageTitle]="pageTitle" [extraText]="extraTitle" [prevRoute]="'dashboard'"></app-breadcrum>
+
+<div class="route-comp p-4">
+  <div class="container brdr-btm">
+    <div class="row">
+      <div class="col-6">
+        <h2>Products List</h2>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-success" (click)="addProduct()">
+          <i class="fas fa-plus"></i> Add Product
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Batch</th>
+        <th scope="col">Expiry</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let med of medicinesArr; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{med.name}}</td>
+        <td>{{med.batch}}</td>
+        <td>{{med.expiry}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary m-1" (click)="viewProduct(med)">
+            <i class="fas fa-eye"></i> View
+          </button>
+          <button class="btn btn-sm btn-danger m-1" (click)="confirmDelete(med._id, med.name, 'medicine')">
+            <i class="fas fa-eye"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
